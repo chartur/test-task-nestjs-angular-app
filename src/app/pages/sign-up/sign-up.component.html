@@ -1,0 +1,29 @@
+<div class="row mt-4">
+  <form [formGroup]="form" class="col-12 offset-0 col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sign up</h3>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input formControlName="username" type="text" class="form-control" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input formControlName="password" type="password" class="form-control" id="password">
+        </div>
+        <div class="mb-3">
+          <label for="confirm_password" class="form-label">Confirm password</label>
+          <input formControlName="confirm_password" type="password" class="form-control" id="confirm_password">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button (click)="onSubmit()" [disabled]="form.invalid" type="button" class="btn btn-success">Sign up</button>
+        <div class="mt-2">
+          <a routerLink="/sign-in">Go to sign in page</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

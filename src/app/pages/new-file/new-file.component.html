@@ -1,0 +1,23 @@
+<app-logout-button></app-logout-button>
+
+<div class="row">
+  <div class="col-12 offset-0 col-lg-6 offset-lg-3">
+    <button routerLink="/files" class="btn btn-success mb-3 mt-5">Go to files list</button>
+
+    <div class="mt-5">
+      <label class="btn btn-info" for="file">Choose a file</label>
+      <input (change)="selectFile($event)" type="file" id="file" class="d-none">
+
+      <div DropZone (onFileDropped)="onFileDropped($event)" class="drop-zone">
+        {{ filePlaceholder }}
+      </div>
+
+      <div class="mt-4">
+        <button (click)="upload()" [disabled]="!file || !isValid" class="btn btn-success">Upload</button>
+      </div>
+      <div *ngIf="uploadedFile">
+        <button class="btn btn-link" (click)="downloadFile()">{{ downloadLink }}</button>
+      </div>
+    </div>
+  </div>
+</div>

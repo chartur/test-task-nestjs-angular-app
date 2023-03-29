@@ -1,0 +1,30 @@
+<app-logout-button></app-logout-button>
+<div class="row">
+  <div class="col-12">
+    <button routerLink="/file" class="btn btn-success mb-3 mt-5">Create new file</button>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Filename</th>
+          <th>Size</th>
+          <th>Download</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let file of (files$ | async)">
+          <td>{{ file.id }}</td>
+          <td>{{ file.name }}</td>
+          <td>{{ file.size | filesize }}</td>
+          <td>
+            <button (click)="downloadFile(file)" class="btn btn-link">{{ file.path }}</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
